@@ -21,7 +21,7 @@
    npm install
    ```
    5. para este caso usaremos:
-    ```bash
+   ```bash
    npm install csv-parser dotenv
    ```
 
