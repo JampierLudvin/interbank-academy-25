@@ -4,7 +4,7 @@
 ## Introducción:
 
    Este programa realiza la lectura de un archivo data.csv, para posteriormente procesar la información de las 3 columnas y obtener como resultado el balance final, la transaccion de mayor monto y el conteo de transacciones totales, este programa fue realizado con Node Js v18.20.8 y Javascript Moderno.
----
+
 ## Instrucciones de Ejecución:
 
    1. El IDE a usar es Visual Studio Code, o alguno que soporte Node js.
@@ -20,7 +20,7 @@
    ```bash
    npm install
    ```
-   5. para este caso usaremos:
+   5. para este caso usaremos para el uso de archivo csv:
    ```bash
    npm install csv-parser dotenv
    ```
@@ -34,11 +34,11 @@
    - Definimos variables para almacenar el balance, la transaccion con el monto mayor, el conteo de transacciones como un objeto y la variable transactionIds para verificar si el ID de algun registro esta repetido.
 
    las funciones usadas son:
-   - **verificarArchivo**, este verifica si el archivo existe o no.
-   - **validarFila**, la cual revisa si la fila del archivo tiene los datos correctos a travez del ".trim" y la expresion regular que verifica que no tenga ningun caracter alfabetico en el numero ya sea en la parte entera o decimal, para evitar errores como monto=456.A58.
-   - **procesarFila**, esta funcion verifica los id duplicados, ademas de validar que por alguna razon se haya escrito sin tilde el tipo de monto, que es un error frecuente en navegadores web.
-   - **mostrarReporte**, esta funcion imprime en pantalla el balance redondeando a 2 decimales, la transaccion con el monto mayor y el conteo de transacciones.
-   - **procesarCSV**, aqui es donde se orquesta todo el programa y sus funciones.
+   - **verificarArchivo()**, este verifica si el archivo existe o no.
+   - **validarFila()**, la cual revisa si la fila del archivo tiene los datos correctos a travez del ".trim" y la expresion regular que verifica que no tenga ningun caracter alfabetico en el numero ya sea en la parte entera o decimal, para evitar errores como monto=456.A58.
+   - **procesarFila()**, esta funcion verifica los id duplicados, ademas de validar que por alguna razon se haya escrito sin tilde el tipo de monto, que es un error frecuente en navegadores web.
+   - **mostrarReporte()**, esta funcion imprime en pantalla el balance redondeando a 2 decimales, la transaccion con el monto mayor y el conteo de transacciones.
+   - **procesarCSV()**, aqui es donde se orquesta todo el programa y sus funciones.
    Como ultima linea se llama a la funcion anterior y listo.
 
 ## Estructura del Proyecto:
