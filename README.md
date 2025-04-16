@@ -1,66 +1,33 @@
-# Reto Técnico: Procesamiento de Transacciones Bancarias (CLI)
 
-## Objetivo:
 
-Desarrolla una aplicación de línea de comandos (CLI) que procese un archivo CSV con transacciones bancarias y genere un reporte que incluya:
+**Introducción:** 
+   Este programa realiza la lectura de un archivo data.csv, para posteriormente procesar la información de las 3 columnas y obtener como resultado el balance final, la transaccion de mayor monto y el conteo de transacciones totales, este programa fue realizado con Node Js v18.20.8 y Javascript Moderno.
+**Instrucciones de Ejecución:** 
+Paso 1:
+   El IDE a usar es Visual Studio Code, o alguno que soporte Node js.
+   Clonar el repositorio del reto.
+   Inicializamos el proyecto con el comando **npm init -y** una vez ubicados en la carpeta del proyecto
+   Instalamos dependencias con el comando **npm istall**
+      para este caso usaremos **csv-parser** y **dotenv**
+**Enfoque y Solución:** 
+Para la solucion usé funciones para separar cada accion y asi modularizar de mejor forma el codigo, ademas esto me permite controlar errores de forma mas exacta, lo que se hizo dentro es primero una funcion principal que maneja todo, los pasos de ejecucion resumidos son:
+-Importamos modulos a usar como fs/promises, path, csv-parser y stream para usarlos en nuestro codigo.
+-Guardamos en la variable CSV_PATH la ruta del archivo csv, en este caso esta en la raiz del proyecto.
+-Definimos variables para almacenar el balance, la transaccion con el monto mayor, el conteo de transacciones como un objeto y la variable transactionIds para verificar si el ID de algun registro esta repetido.
 
-- **Balance Final:**  
-  Suma de los montos de las transacciones de tipo "Crédito" menos la suma de los montos de las transacciones de tipo "Débito".
+las funciones usadas son:
+**verificarArchivo**, este verifica si el archivo existe o no.
+**validarFila**, la cual revisa si la fila del archivo tiene los datos correctos a travez del ".trim" y la expresion regular que verifica que no tenga ningun caracter alfabetico en el numero ya sea en la parte entera o decimal, para evitar errores como monto=456.A58.
+**procesarFila**, esta funcion verifica los id duplicados, ademas de validar que por alguna razon se haya escrito sin tilde el tipo de monto, que es un error frecuente en navegadores web.
+**mostrarReporte**, esta funcion imprime en pantalla el balance redondeando a 2 decimales, la transaccion con el monto mayor y el conteo de transacciones
+**Estructura del Proyecto:** 
+INTERBANK-ACADEMY-25/
+├── node_modules/
+├── src/
+│   └── index.js        # Código principal
+├── .gitignore   
+├── data.csv     # (Archivo csv)
+├── package-lock.json
+├── package.json
+└── README.md
 
-- **Transacción de Mayor Monto:**  
-  Identificar el ID y el monto de la transacción con el valor más alto.
-
-- **Conteo de Transacciones:**  
-  Número total de transacciones para cada tipo ("Crédito" y "Débito").
-
----
-
-## Instrucciones
-
-1. **Repositorio Base:**  
-   Clona o haz un fork del repositorio base disponible en:  
-   `https://github.com/codeableorg/interbank-academy-25`
-
-2. **Entrada de Datos:**  
-   La aplicación deberá leer un archivo CSV. Ejemplo de contenido:
-
-   ```
-   id,tipo,monto
-   1,Crédito,100.00
-   2,Débito,50.00
-   3,Crédito,200.00
-   4,Débito,75.00
-   5,Crédito,150.00
-   ```
-
-3. **Salida del Programa:**  
-   La aplicación debe mostrar el reporte final en la terminal.  
-   Ejemplo de salida:
-
-   ```
-   Reporte de Transacciones
-   ---------------------------------------------
-   Balance Final: 325.00
-   Transacción de Mayor Monto: ID 3 - 200.00
-   Conteo de Transacciones: Crédito: 3 Débito: 2
-   ```
-
-4. **Lenguaje de Programación:**  
-   Utiliza el lenguaje de tu preferencia. Opciones recomendadas:
-
-   - Python
-   - Java
-   - C#
-   - JavaScript (Node.js)
-
-5. **README del Proyecto:**  
-   Incluye un archivo `README.md` con la siguiente estructura:
-
-   - **Introducción:** Breve descripción del reto y su propósito.
-   - **Instrucciones de Ejecución:** Cómo instalar dependencias y ejecutar la aplicación.
-   - **Enfoque y Solución:** Lógica implementada y decisiones de diseño.
-   - **Estructura del Proyecto:** Archivos y carpetas principales.
-
-6. **Documentación y Calidad del Código:**
-   - Código bien documentado y fácil de leer.
-   - Comentarios explicando pasos clave y lógica del programa.

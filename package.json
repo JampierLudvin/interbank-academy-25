@@ -1,0 +1,16 @@
+{
+  "name": "interbank-academy-25",
+  "version": "1.0.0",
+  "description": "Desarrolla una aplicación de línea de comandos (CLI) que procese un archivo CSV con transacciones bancarias y genere un reporte",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "Jampier Ludvin Mansilla Salinas",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.5.0"
+  }
+}
